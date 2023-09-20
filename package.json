@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format:check": "prettier --check .",
-    "format": "prettier --write .",
+    "format:check": "prettier --check \"**/*\" --ignore-unknown",
+    "format": "prettier --write \"**/*\" --ignore-unknown",
     "lint": "eslint ."
   },
   "dependencies": {
