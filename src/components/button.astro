@@ -4,14 +4,15 @@
 ---
 
 <button
-  class="appearance-none rounded-lg bg-purple-500 px-4 py-2 font-semibold text-white shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400/75"
+  id="confetti-button"
+  class="appearance-none rounded-lg bg-primary px-4 py-2 font-semibold text-primary-content shadow-md focus:outline-none focus:ring-2"
 >
   <slot />
 </button>
 
 <script>
   import confetti from "canvas-confetti";
-  const button = document.body.querySelector("button");
+  const button = document.getElementById("confetti-button");
 
   if (button) {
     button.addEventListener("click", () => confetti());

@@ -1,0 +1,32 @@
+---
+import ThemeIcon from "@/components/theme-icon.astro";
+import "@/styles/base.css";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-base-1 text-base-content">
+    <header class="layout-container sticky inset-x-0 top-0 flex h-20 items-center justify-between">
+      <nav>
+        <ul class="flex gap-x-4">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      <ThemeIcon />
+    </header>
+    <main class="layout-container"><slot /></main>
+  </body>
+</html>
