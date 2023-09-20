@@ -1,5 +1,17 @@
+const commonTypescriptRules = {
+  "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports" }],
+  "@typescript-eslint/dot-notation": "error",
+  "@typescript-eslint/no-inferrable-types": "error",
+  "@typescript-eslint/no-unnecessary-condition": "error",
+  "@typescript-eslint/no-unnecessary-type-assertion": "error",
+  "@typescript-eslint/no-unused-vars": "error",
+  "@typescript-eslint/prefer-as-const": "error",
+  "@typescript-eslint/prefer-ts-expect-error": "error",
+};
+
 /** @type {import("eslint").Linter.Config} */
 const config = {
+  root: true,
   env: { node: true, browser: true, es2022: true },
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   extends: ["eslint:recommended", "plugin:astro/recommended", "plugin:tailwindcss/recommended", "prettier"],
@@ -28,8 +40,13 @@ const config = {
       parserOptions: {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"],
       },
-      rules: {},
+      extends: ["plugin:@typescript-eslint/recommended"],
+      rules: {
+        ...commonTypescriptRules,
+      },
     },
     {
       files: ["*.ts?(x)"],
@@ -40,14 +57,7 @@ const config = {
       },
       extends: ["plugin:@typescript-eslint/recommended"],
       rules: {
-        "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports" }],
-        "@typescript-eslint/dot-notation": "error",
-        "@typescript-eslint/no-inferrable-types": "error",
-        "@typescript-eslint/no-unnecessary-condition": "error",
-        "@typescript-eslint/no-unnecessary-type-assertion": "error",
-        "@typescript-eslint/no-unused-vars": "error",
-        "@typescript-eslint/prefer-as-const": "error",
-        "@typescript-eslint/prefer-ts-expect-error": "error",
+        ...commonTypescriptRules,
       },
     },
     {
