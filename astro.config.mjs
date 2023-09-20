@@ -2,6 +2,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/static";
 import { defineConfig } from "astro/config";
+import compress from "astro-compress";
 
 export default defineConfig({
   site: "https://stefanofa.it",
@@ -10,6 +11,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
+    compress(),
   ],
   output: "static",
   adapter: vercel({
