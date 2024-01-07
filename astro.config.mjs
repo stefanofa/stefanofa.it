@@ -4,6 +4,7 @@ import vercel from "@astrojs/vercel/static";
 import { defineConfig } from "astro/config";
 import compress from "astro-compress";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://stefanofa.it",
   integrations: [
